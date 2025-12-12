@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="{% static 'main/index.css' %}">
+</head>
+
+<body>
+    <div class="bg-center"></div>
+
+    <div class="logo">
+        <p>Твой путь к успеху на ЕГЭ</p>
+        <h1>ЕГЭРЕШАЧ</h1>
+    </div>
+
+    <div class="info">
+        <p class="p1">Подготовка к ЕГЭ по всем предметам</p>
+        <p class="p2">Изучай теорию, решай задания и успешно сдавай экзамены. Все материалы структурированы и соответствуют актуальным требованиям ЕГЭ.</p>
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <img src="{% static 'main/images/file-text-iso-clay.svg' %}" alt="">
+            <p>Полные конспекты</p>
+        </div>
+
+        <div class="card">
+            <img src="{% static 'main/images/tick-front-clay.svg' %}" alt="">
+            <p>Практические задания</p>
+        </div>
+
+        <div class="card">
+            <img src="{% static 'main/images/bookmark-dynamic-clay.svg' %}" alt="">
+            <p>Все предметы</p>
+        </div>
+
+        <div class="card">
+            <img src="{% static 'main/images/thumb-up-dynamic-clay.svg' %}" alt="">
+            <p>Бесплатно</p>
+        </div>
+    </div>
+
+    <div class="text">
+        <p>Выберите предмет для подготовки</p>
+    </div>
+
+    <div class="subjects">
+        <a href="{% url 'socialstudies' %}" class="subject">
+            <img src="{% static 'main/images/Balance Scale.svg' %}" alt="">
+            <p>Обществознание</p>
+        </a>
+
+        <a href="#" class="subject">
+            <img src="{% static 'main/images/Input Numbers.svg' %}" alt="">
+            <p>Математика</p>
+        </a>
+
+        <a href="#" class="subject">
+            <img src="{% static 'main/images/Memo.svg' %}" alt="">
+            <p>Русский язык</p>
+        </a>
+
+        <a href="#" class="subject">
+            <img src="{% static 'main/images/High Voltage.svg' %}" alt="">
+            <p>Физика</p>
+        </a>
+
+        <a href="#" class="subject">
+            <img src="{% static 'main/images/Test Tube.svg' %}" alt="">
+            <p>Химия</p>
+        </a>
+
+        <a href="#" class="subject">
+            <img src="{% static 'main/images/Herb.svg' %}" alt="">
+            <p>Биология</p>
+        </a>
+
+        <a href="#" class="subject">
+            <img src="{% static 'main/images/Books.svg' %}" alt="">
+            <p>История</p>
+        </a>
+
+        <a href="#" class="subject">
+            <img src="{% static 'main/images/Flag United Kingdom.svg' %}" alt="">
+            <p>Английский язык</p>
+        </a>
+
+        <a href="#" class="subject">
+            <img src="{% static 'main/images/Laptop.svg' %}" alt="">
+            <p>Информатика</p>
+        </a>
+
+        <a href="#" class="subject">
+            <img src="{% static 'main/images/Open Book.svg' %}" alt="">
+            <p>Литература</p>
+        </a>
+    </div>
+</body>
+</html>
