@@ -1,0 +1,53 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<div class="topic-container">
+    <a href="{% url 'subject_detail' topic.section.subject.slug %}">← Назад к темам</a>
+    
+    <h2>{{ topic.code }} {{ topic.title }}</h2>
+    
+    <div class="tabs">
+        <button onclick="openTab('theory')" class="tab-btn active">📖 Теория</button>
+        <button onclick="openTab('practice')" class="tab-btn">✅ Практика</button>
+    </div>
+
+    <div id="theory" class="tab-content">
+        <div class="conspect-content">
+            {{ topic.content|safe }}
+        </div>
+    </div>
+
+    <div id="practice" class="tab-content" style="display:none;">
+        {% for question in questions %}
+            <div class="question-card">
+                <p class="question-text">{{ forloop.counter }}. {{ question.text }}</p>
+                
+                <form class="options-list">
+                    {% for option in question.options.all %}
+                        <label class="option-item">
+                            <input type="radio" name="q{{ question.id }}" value="{{ option.is_correct }}">
+                            {{ option.text }}
+                        </label>
+                    {% endfor %}
+                </form>
+                
+                <div class="feedback" style="display:none;"></div>
+            </div>
+        {% empty %}
+            <p>Вопросов пока нет.</p>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+function openTab(tabName) {
+    // скрытие всех вкладок
+    document.getElementById('theory').style.display = 'none';
+    document.getElementById('practice').style.display = 'none';
+    
+    // показ выбранной вкладки
+    document.getElementById(tabName).style.display = 'block';
+    
+}
+</script>
+{% endblock %}

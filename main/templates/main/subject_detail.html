@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="header-card">
+        <h1>{{ subject.title }}</h1>
+    </div>
+
+    {% for section in sections %}
+        <div class="section-block">
+            <h3>{{ section.title }}</h3>
+            
+            <div class="topics-list">
+                {% for topic in section.topics.all %}
+                    <a href="{% url 'topic_detail' topic.id %}" class="topic-item">
+                        <span class="topic-code">{{ topic.code }}</span>
+                        <span class="topic-title">{{ topic.title }}</span>
+                        <span class="arrow">→</span>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
