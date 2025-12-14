@@ -204,3 +204,263 @@ body::after {
 .subject img {
     margin-bottom: 20px;
 }
+
+/* =========================================
+   СТИЛИ ДЛЯ СТРАНИЦЫ (subject_detail.html)
+   ========================================= */
+
+.internal-page .logo {
+    padding-top: 20px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.internal-page .logo h1 {
+    font-size: 40px; 
+    padding-top: 0;
+    margin: 0;
+    transition: 0.3s;
+}
+
+.internal-page .logo .logo-slogan {
+    display: none;
+}
+
+.logo a {
+    text-decoration: none;
+}
+
+.container.subject-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px 100px 20px;
+}
+
+.header-card h2 {
+    font-family: "Philosopher", sans-serif;
+    color: #5CDB95; 
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 20px rgba(92, 219, 149, 0.3);
+}
+
+.section-block {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    margin-bottom: 40px;
+    overflow: hidden; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-block:hover {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.section-header {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.section-header h3 {
+    font-family: "Aboreto", system-ui;
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.topics-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.topic-item {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 18px 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    color: rgba(255, 255, 255, 0.8);
+    font-family: "Roboto", sans-serif;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.topic-item:last-child {
+    border-bottom: none;
+}
+
+.topic-item:hover {
+    background: rgba(92, 219, 149, 0.1); 
+    color: #fff;
+    padding-left: 35px; 
+}
+
+.topic-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.topic-code {
+    font-family: "Oi", serif; 
+    color: #5CDB95;
+    font-size: 14px;
+    background: rgba(92, 219, 149, 0.1);
+    padding: 4px 8px;
+    border-radius: 6px;
+    min-width: 40px;
+    text-align: center;
+}
+
+.topic-title {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.arrow {
+    color: #5CDB95;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.topic-item:hover .arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* =========================================
+   СТИЛИ ДЛЯ СТРАНИЦЫ ТЕМЫ (topic_detail.html)
+   ========================================= */
+
+.topic-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px 100px 20px;
+}
+
+.topic-container a {
+    color: #5CDB95; 
+    font-size: 16px;
+    margin-bottom: 30px;
+    display: inline-block;
+    transition: 0.2s;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+}
+
+.topic-container a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(92, 219, 149, 0.5); 
+}
+
+.topic-container h2 {
+    font-family: "Philosopher", sans-serif;
+    color: white;
+    font-size: 36px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+    font-weight: 700;
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05); 
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.tab-btn:hover:not(.active) {
+    background: rgba(92, 219, 149, 0.05);
+    color: white;
+}
+
+.tab-btn.active {
+    background: #5CDB95; 
+    color: #151515; 
+    border-color: #5CDB95;
+    font-weight: 700;
+    box-shadow: 0 0 15px rgba(92, 219, 149, 0.8); 
+}
+
+.conspect-content {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.question-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(5px);
+}
+
+.question-text {
+    color: white;
+    font-family: "Philosopher", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option-item {
+    display: block;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+    border: 1px solid transparent;
+}
+
+.option-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(92, 219, 149, 0.3); 
+}
+
+.option-item input[type="radio"] {
+    margin-right: 10px;
+}

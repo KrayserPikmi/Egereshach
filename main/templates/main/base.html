@@ -6,13 +6,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}ЕГЭРЕШАЧ{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'main/index.css' %}">
+    <link rel="stylesheet" href="{% static 'main/index.css' %}?v=2">
 </head>
 
-<body>
-    <div class="logo">
-        <p>Твой путь к успеху на ЕГЭ</p>
-        <h1>ЕГЭРЕШАЧ</h1>
+<body class="{% block body_class %}{% endblock %}">
+    <div class="bg-center"></div> <div class="logo">
+        <p class="logo-slogan">Твой путь к успеху на ЕГЭ</p> 
+        
+        <a href="/"> 
+            <h1>ЕГЭРЕШАЧ</h1>
+        </a>
     </div>
     
     {% block content %}

@@ -1,5 +1,7 @@
 {% extends 'main/base.html' %}
 
+{% block body_class %}internal-page{% endblock %}
+
 {% block content %}
 <div class="topic-container">
     <a href="{% url 'subject_detail' topic.section.subject.slug %}">← Назад к темам</a>

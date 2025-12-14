@@ -1,25 +1,35 @@
 {% extends 'main/base.html' %}
 
+{% block title %}{{ subject.title }} | ЕГЭРЕШАЧ{% endblock %}
+
+{% block body_class %}internal-page{% endblock %}
+
 {% block content %}
-<div class="container">
+<div class="container subject-page">
     <div class="header-card">
-        <h1>{{ subject.title }}</h1>
+        <h2>{{ subject.title }}</h2>
     </div>
 
-    {% for section in sections %}
-        <div class="section-block">
-            <h3>{{ section.title }}</h3>
-            
-            <div class="topics-list">
-                {% for topic in section.topics.all %}
-                    <a href="{% url 'topic_detail' topic.id %}" class="topic-item">
-                        <span class="topic-code">{{ topic.code }}</span>
-                        <span class="topic-title">{{ topic.title }}</span>
-                        <span class="arrow">→</span>
-                    </a>
-                {% endfor %}
+    <div class="sections-wrapper">
+        {% for section in sections %}
+            <div class="section-block">
+                <div class="section-header">
+                    <h3>{{ section.title }}</h3>
+                </div>
+                
+                <div class="topics-list">
+                    {% for topic in section.topics.all %}
+                        <a href="{% url 'topic_detail' topic.id %}" class="topic-item">
+                            <div class="topic-info">
+                                <span class="topic-code">{{ topic.code }}</span>
+                                <span class="topic-title">{{ topic.title }}</span>
+                            </div>
+                            <span class="arrow">→</span>
+                        </a>
+                    {% endfor %}
+                </div>
             </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}
