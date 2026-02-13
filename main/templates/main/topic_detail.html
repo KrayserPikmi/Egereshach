@@ -9,8 +9,8 @@
     <h2>{{ topic.code }} {{ topic.title }}</h2>
     
     <div class="tabs">
-        <button onclick="openTab('theory')" class="tab-btn active">📖 Теория</button>
-        <button onclick="openTab('practice')" class="tab-btn">✅ Практика</button>
+        <button onclick="openTab('theory')" class="tab-btn active" id="btn-theory">📖 Теория</button>
+        <button onclick="openTab('practice')" class="tab-btn" id="btn-practice">✅ Практика</button>
     </div>
 
     <div id="theory" class="tab-content">
@@ -21,35 +21,68 @@
 
     <div id="practice" class="tab-content" style="display:none;">
         {% for question in questions %}
-            <div class="question-card">
-                <p class="question-text">{{ forloop.counter }}. {{ question.text }}</p>
-                
-                <form class="options-list">
-                    {% for option in question.options.all %}
-                        <label class="option-item">
-                            <input type="radio" name="q{{ question.id }}" value="{{ option.is_correct }}">
-                            {{ option.text }}
-                        </label>
-                    {% endfor %}
-                </form>
-                
-                <div class="feedback" style="display:none;"></div>
+            <div class="question-card" id="q_block_{{ question.id }}">
+    <div class="question-text">{{ forloop.counter }}. {{ question.text|safe }}</div>
+    
+    <form class="options-list">
+        {% for option in question.options.all %}
+            <label class="option-item">
+                <input type="radio" name="q{{ question.id }}" class="radio-input">
+                <div class="option-content">
+                    <span class="option-marker"></span>
+                    <span class="option-text">{{ option.text }}</span>
+                </div>
+            </label>
+        {% endfor %}
+    </form>
+
+    <button type="button" class="tab-btn explanation-toggle-btn" onclick="toggleExplanation('{{ question.id }}')">
+        Пояснение к ответу
+    </button>
+
+    <div id="explanation-{{ question.id }}" class="explanation-container" style="display: none; margin-top: 15px;">
+        <div class="explanation-box" style="background: rgba(92, 219, 149, 0.1); border: 1px solid rgba(92, 219, 149, 0.3); padding: 20px; border-radius: 12px;">
+            <p style="color: #5CDB95; font-weight: bold; margin-bottom: 10px;">Разбор задания:</p>
+            <div class="explanation-content" style="color: rgba(255, 255, 255, 0.9); line-height: 1.6;">
+                {% if question.explanation %}
+                    {{ question.explanation|safe }}
+                {% else %}
+                    <p style="opacity: 0.5;">К этому вопросу пока нет пояснения.</p>
+                {% endif %}
             </div>
+        </div>
+    </div>
+</div>
         {% empty %}
-            <p>Вопросов пока нет.</p>
+            <div class="conspect-content">
+                <p>Вопросов к этой теме пока нет. Загляните позже!</p>
+            </div>
         {% endfor %}
     </div>
 </div>
 
 <script>
 function openTab(tabName) {
-    // скрытие всех вкладок
     document.getElementById('theory').style.display = 'none';
     document.getElementById('practice').style.display = 'none';
     
-    // показ выбранной вкладки
-    document.getElementById(tabName).style.display = 'block';
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
     
+    document.getElementById(tabName).style.display = 'block';
+    if(tabName === 'theory') document.getElementById('btn-theory').classList.add('active');
+    if(tabName === 'practice') document.getElementById('btn-practice').classList.add('active');
 }
+
+function toggleExplanation(qId) {
+    const expDiv = document.getElementById('explanation-' + qId);
+    
+    if (expDiv.style.display === 'none') {
+        expDiv.style.display = 'block';
+        expDiv.style.animation = 'fadeIn 0.4s ease';
+    } else {
+        expDiv.style.display = 'none';
+    }
+}
+
 </script>
 {% endblock %}

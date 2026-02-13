@@ -464,3 +464,78 @@ body::after {
 .option-item input[type="radio"] {
     margin-right: 10px;
 }
+
+/* ===========================
+   СТИЛИ ДЛЯ КАРТОЧКИ ВОПРОСА
+   ===========================*/
+
+.question-card {
+    margin-bottom: 30px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+}
+
+.question-text {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.option-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.option-item:hover {
+    background: rgba(92, 219, 149, 0.1);
+    border-color: rgba(92, 219, 149, 0.3);
+}
+
+.option-item input[type="radio"] {
+    margin-right: 12px;
+    accent-color: #5CDB95;
+}
+
+.feedback-block {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    animation: fadeIn 0.5s ease;
+}
+
+.feedback-block.correct {
+    background: rgba(92, 219, 149, 0.15);
+    border: 1px solid #5CDB95;
+}
+
+.feedback-block.wrong {
+    background: rgba(255, 71, 71, 0.15);
+    border: 1px solid #ff4747;
+}
+
+.check-btn {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+

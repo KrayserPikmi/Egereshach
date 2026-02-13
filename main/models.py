@@ -34,9 +34,14 @@ class Topic(models.Model):
     section = models.ForeignKey(Section, on_delete=models.CASCADE, related_name='topics')
     title = models.CharField("Название темы", max_length=255)
     code = models.CharField("Код темы", max_length=20, help_text="Например, 1.1.1")
+    order = models.PositiveIntegerField("Порядок", default=0)
     
-    content = RichTextField("Теория (Конспект)") 
-
+    content = RichTextField("Теория (Конспект)")
+    
+    class Meta:
+        verbose_name = "Тема"
+        verbose_name_plural = "Темы"
+        ordering = ['code']
 
     def __str__(self):
         return f"{self.code} {self.title}"
@@ -49,8 +54,8 @@ class Topic(models.Model):
 #модель вопроса для тестов
 class Question(models.Model):
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE, related_name='questions')
-    text = models.TextField("Текст вопроса")
-    explanation = models.TextField("Пояснение к ответу", blank=True)
+    text = RichTextField("Текст вопроса") 
+    explanation = RichTextField("Пояснение к ответу", blank=True)
 
 
     def __str__(self):
